@@ -1,0 +1,4 @@
+nimTitle	options	options.html	module src/yarolin/options		0
+nim	`?`	options.html#?.t,typedesc[T]	template `?`[T](ty: typedesc[T]): untyped		6
+nim	`or`	options.html#or.m,Option[T],untyped	macro `or`[T](option: Option[T]; body: untyped): untyped		8
+nim	`<->`	options.html#<->.m,sinkOption[T],sinkOption[T]	macro `<->`[T](option1, option2: sink Option[T]): T		17
