@@ -25,23 +25,23 @@ nim	returnErr	results.html#returnErr.t	template returnErr(): untyped		215
 nim	returnErr	results.html#returnErr.t,untyped	template returnErr(err: untyped): untyped		220
 nim	`or`	results.html#or.m,sinkResult[V,E],untyped	macro `or`[V, E](res: sink Result[V, E]; body: untyped): untyped		225
 nim	orReturn	results.html#orReturn.m,sinkResult[V,E],untyped	macro orReturn[V, E](res: sink Result[V, E]; body: untyped): untyped		258
-nim	`try`	results.html#try.m,Result[V,E]	macro `try`[V, E](res: Result[V, E]): untyped		281
-nim	throw	results.html#throw,sinkResult[V,E],typedesc[X]	proc throw[V, E, X](res: sink Result[V, E]; errorType: typedesc[X]): V		295
-nim	throw	results.html#throw,sinkResult[V,E]	proc throw[V, E](res: sink Result[V, E]): V		304
-nim	with	results.html#with.m,Result[V,E],untyped	macro with[V, E](res: Result[V, E]; body: untyped): untyped		310
-nim	successfulAnd	results.html#successfulAnd,Result[V,E],proc(V)	proc successfulAnd[V, E](res: Result[V, E]; fn: proc (val: V): bool): bool		408
-nim	unsuccessfulAnd	results.html#unsuccessfulAnd,Result[V,E],proc(E)	proc unsuccessfulAnd[V, E](res: Result[V, E]; fn: proc (err: E): bool): bool		421
-nim	successfulAndIt	results.html#successfulAndIt.m,Result[V,E],untyped	macro successfulAndIt[V, E](res: Result[V, E]; body: untyped): untyped		436
-nim	unsuccessfulAndIt	results.html#unsuccessfulAndIt.m,Result[V,E],untyped	macro unsuccessfulAndIt[V, E](res: Result[V, E]; body: untyped): untyped		450
-nim	mapVal	results.html#mapVal,sinkResult[V,E],proc(V)	proc mapVal[V, E, U](res: sink Result[V, E]; fn: proc (val: V): U): Result[U, E]		465
-nim	mapValOr	results.html#mapValOr,sinkResult[V,E],U,proc(V)	proc mapValOr[V, E, U](res: sink Result[V, E]; default: U; fn: proc (val: V): U): U		486
-nim	mapValOrElse	results.html#mapValOrElse,sinkResult[V,E],proc(E),proc(V)	proc mapValOrElse[V, E, U](res: sink Result[V, E]; defaultFn: proc (err: E): U;\n                      fn: proc (val: V): U): U		503
-nim	mapValIt	results.html#mapValIt.m,sinkResult[V,E],untyped	macro mapValIt[V, E](res: sink Result[V, E]; body: untyped): untyped		528
-nim	mapValOrIt	results.html#mapValOrIt.m,sinkResult[V,E],U,untyped	macro mapValOrIt[V, E, U](res: sink Result[V, E]; default: U; body: untyped): untyped		555
-nim	mapValOrElseIt	results.html#mapValOrElseIt.m,sinkResult[V,E],untyped,untyped	macro mapValOrElseIt[V, E](res: sink Result[V, E]; errBody, body: untyped): untyped		577
-nim	mapErr	results.html#mapErr,sinkResult[V,E],proc(E)	proc mapErr[V, E, F](res: sink Result[V, E]; fn: proc (val: E): F): Result[V, F]		603
-nim	mapErrIt	results.html#mapErrIt.m,sinkResult[V,E],untyped	macro mapErrIt[V, E](res: sink Result[V, E]; errBody: untyped): untyped		608
-nimgrp	throw	results.html#throw-procs-all	proc		295
+nim	`try`	results.html#try.m,Result[V,E]	macro `try`[V, E](res: Result[V, E]): untyped		277
+nim	throw	results.html#throw,sinkResult[V,E],typedesc[X]	proc throw[V, E, X](res: sink Result[V, E]; errorType: typedesc[X]): V		291
+nim	throw	results.html#throw,sinkResult[V,E]	proc throw[V, E](res: sink Result[V, E]): V		300
+nim	with	results.html#with.m,Result[V,E],untyped	macro with[V, E](res: Result[V, E]; body: untyped): untyped		306
+nim	successfulAnd	results.html#successfulAnd,Result[V,E],proc(V)	proc successfulAnd[V, E](res: Result[V, E]; fn: proc (val: V): bool): bool		404
+nim	unsuccessfulAnd	results.html#unsuccessfulAnd,Result[V,E],proc(E)	proc unsuccessfulAnd[V, E](res: Result[V, E]; fn: proc (err: E): bool): bool		417
+nim	successfulAndIt	results.html#successfulAndIt.m,Result[V,E],untyped	macro successfulAndIt[V, E](res: Result[V, E]; body: untyped): untyped		432
+nim	unsuccessfulAndIt	results.html#unsuccessfulAndIt.m,Result[V,E],untyped	macro unsuccessfulAndIt[V, E](res: Result[V, E]; body: untyped): untyped		446
+nim	mapVal	results.html#mapVal,sinkResult[V,E],proc(V)	proc mapVal[V, E, U](res: sink Result[V, E]; fn: proc (val: V): U): Result[U, E]		461
+nim	mapValOr	results.html#mapValOr,sinkResult[V,E],U,proc(V)	proc mapValOr[V, E, U](res: sink Result[V, E]; default: U; fn: proc (val: V): U): U		482
+nim	mapValOrElse	results.html#mapValOrElse,sinkResult[V,E],proc(E),proc(V)	proc mapValOrElse[V, E, U](res: sink Result[V, E]; defaultFn: proc (err: E): U;\n                      fn: proc (val: V): U): U		499
+nim	mapValIt	results.html#mapValIt.m,sinkResult[V,E],untyped	macro mapValIt[V, E](res: sink Result[V, E]; body: untyped): untyped		524
+nim	mapValOrIt	results.html#mapValOrIt.m,sinkResult[V,E],U,untyped	macro mapValOrIt[V, E, U](res: sink Result[V, E]; default: U; body: untyped): untyped		550
+nim	mapValOrElseIt	results.html#mapValOrElseIt.m,sinkResult[V,E],untyped,untyped	macro mapValOrElseIt[V, E](res: sink Result[V, E]; errBody, body: untyped): untyped		572
+nim	mapErr	results.html#mapErr,sinkResult[V,E],proc(E)	proc mapErr[V, E, F](res: sink Result[V, E]; fn: proc (val: E): F): Result[V, F]		597
+nim	mapErrIt	results.html#mapErrIt.m,sinkResult[V,E],untyped	macro mapErrIt[V, E](res: sink Result[V, E]; errBody: untyped): untyped		617
+nimgrp	throw	results.html#throw-procs-all	proc		291
 nimgrp	success	results.html#success-procs-all	proc		68
 nimgrp	failure	results.html#failure-procs-all	proc		84
 nimgrp	returnval	results.html#returnVal-templates-all	template		205

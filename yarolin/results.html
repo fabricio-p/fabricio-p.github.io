@@ -344,7 +344,18 @@
     <span class="Identifier">effectsOf</span><span class="Other">:</span> <span class="Identifier">fn</span>.}</pre></dt>
   <dd>
     
-    
+    Creates and returns a failure with the return value of the function <tt class="docutils literal"><span class="pre">fn</span></tt> applied on the error of <tt class="docutils literal"><span class="pre">res</span></tt> as error when <tt class="docutils literal"><span class="pre">res</span></tt> is a failure result, otherwise returns a success result with the value of <tt class="docutils literal"><span class="pre">res</span></tt> as value.
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Keyword">import</span> <span class="Identifier">sugar</span>
+
+<span class="Keyword">block</span><span class="Punctuation">:</span>
+  <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">failure</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="StringLit">&quot;foo&quot;</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapErr</span><span class="Punctuation">(</span><span class="Identifier">err</span> <span class="Operator">=&gt;</span> <span class="Identifier">err</span> <span class="Operator">&amp;</span> <span class="StringLit">&quot; bar&quot;</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">unsuccessful</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">getErr</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="StringLit">&quot;foo bar&quot;</span>
+<span class="Keyword">block</span><span class="Punctuation">:</span>
+  <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">success</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="DecNumber">3</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapErr</span><span class="Punctuation">(</span><span class="Identifier">err</span> <span class="Operator">=&gt;</span> <span class="Identifier">err</span> <span class="Operator">&amp;</span> <span class="StringLit">&quot; bar&quot;</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">successful</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">getVal</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="DecNumber">3</span></pre>
     
   </dd>
 </div>
@@ -553,7 +564,22 @@
   <dt><pre><span class="Keyword">macro</span> <a href="#mapErrIt.m%2CsinkResult%5BV%2CE%5D%2Cuntyped"><span class="Identifier">mapErrIt</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">errBody</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    
+    Functions the same as <a class="reference external" href="#mapErr,sinkResult[V,E],proc(E):F">mapErr</a>, but instead of taking and calling a function, it takes and executes an AST, providing the error of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Keyword">block</span><span class="Punctuation">:</span>
+  <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">failure</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="StringLit">&quot;abc&quot;</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapErrIt</span><span class="Punctuation">:</span>
+    <span class="Keyword">var</span> <span class="Identifier">err</span> <span class="Operator">=</span> <span class="Identifier">it</span>
+    <span class="Identifier">err</span><span class="Operator">.</span><span class="Identifier">setLen</span> <span class="DecNumber">2</span>
+    <span class="Identifier">err</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">unsuccessful</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">getErr</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="StringLit">&quot;ab&quot;</span>
+<span class="Keyword">block</span><span class="Punctuation">:</span>
+  <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">success</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="DecNumber">0</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapErrIt</span><span class="Punctuation">:</span>
+    <span class="Keyword">var</span> <span class="Identifier">err</span> <span class="Operator">=</span> <span class="Identifier">it</span>
+    <span class="Identifier">err</span><span class="Operator">.</span><span class="Identifier">setLen</span> <span class="DecNumber">2</span>
+    <span class="Identifier">err</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">successful</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+  <span class="Identifier">doAssert</span> <span class="Identifier">res</span><span class="Operator">.</span><span class="Identifier">getVal</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Operator">==</span> <span class="DecNumber">0</span></pre>
     
   </dd>
 </div>
@@ -857,7 +883,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-21 21:20:40 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-22 18:16:18 UTC</small>
       </div>
     </div>
   </div>
