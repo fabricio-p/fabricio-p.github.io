@@ -67,6 +67,14 @@
   <li><a class="reference" href="#%24%2CResult%5BV%2CE%5D" title="`$`[V, E](res: Result[V, E]): string">`$`[V, E](res: Result[V, E]): string</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">borrowErr
+  <li><a class="reference" href="#borrowErr%2CResult%5BV%2CE%5D" title="borrowErr[V, E](res: var Result[V, E]): var E">borrowErr[V, E](res: var Result[V, E]): var E</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">borrowVal
+  <li><a class="reference" href="#borrowVal%2CResult%5BV%2CE%5D" title="borrowVal[V, E](res: var Result[V, E]): var V">borrowVal[V, E](res: var Result[V, E]): var V</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">default
   <li><a class="reference" href="#default%2Ctypedesc%5BResult%5BV%2CE%5D%5D" title="default[V, E](resType: typedesc[Result[V, E]])">default[V, E](resType: typedesc[Result[V, E]])</a></li>
 
@@ -284,9 +292,32 @@
 </div>
 
 </div>
+<div id="borrowErr-procs-all">
+  <div id="borrowErr,Result[V,E]">
+  <dt><pre><span class="Keyword">func</span> <a href="#borrowErr%2CResult%5BV%2CE%5D"><span class="Identifier">borrowErr</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">E</span></pre></dt>
+  <dd>
+    
+    Borrows the error of <tt class="docutils literal"><span class="pre">res</span></tt> by reference.
+    
+  </dd>
+</div>
+
+</div>
+<div id="borrowVal-procs-all">
+  <div id="borrowVal,Result[V,E]">
+  <dt><pre><span class="Keyword">func</span> <a href="#borrowVal%2CResult%5BV%2CE%5D"><span class="Identifier">borrowVal</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">V</span></pre></dt>
+  <dd>
+    
+    Borrows the value of <tt class="docutils literal"><span class="pre">res</span></tt> by reference.
+    
+  </dd>
+</div>
+
+</div>
 <div id="default-procs-all">
   <div id="default,typedesc[Result[V,E]]">
-  <dt><pre><span class="Keyword">func</span> <a href="#default%2Ctypedesc%5BResult%5BV%2CE%5D%5D"><span class="Identifier">default</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">resType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">[</span><a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">]</span><span class="Other">)</span> {.<span class="Identifier">error</span>.}</pre></dt>
+  <dt><pre><span class="Keyword">func</span> <a href="#default%2Ctypedesc%5BResult%5BV%2CE%5D%5D"><span class="Identifier">default</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">resType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">[</span><a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">]</span><span class="Other">)</span> {.
+    <span class="Identifier">error</span><span class="Other">:</span> <span class="StringLit">&quot;A result can\'t have a default variant&quot;</span>.}</pre></dt>
   <dd>
     
     
@@ -564,7 +595,7 @@
   <dt><pre><span class="Keyword">macro</span> <a href="#mapErrIt.m%2CsinkResult%5BV%2CE%5D%2Cuntyped"><span class="Identifier">mapErrIt</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">errBody</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    Functions the same as <a class="reference external" href="#mapErr,sinkResult[V,E],proc(E):F">mapErr</a>, but instead of taking and calling a function, it takes and executes an AST, providing the error of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
+    Functions the same as <a class="reference external" href="#mapErr,sinkResult[V,E],proc(E)">mapErr</a>, but instead of taking and calling a function, it takes and executes an AST, providing the error of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">block</span><span class="Punctuation">:</span>
   <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">failure</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="StringLit">&quot;abc&quot;</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapErrIt</span><span class="Punctuation">:</span>
@@ -590,7 +621,7 @@
   <dt><pre><span class="Keyword">macro</span> <a href="#mapValIt.m%2CsinkResult%5BV%2CE%5D%2Cuntyped"><span class="Identifier">mapValIt</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    Functions the same as <a class="reference external" href="#mapVal,sinkResult[V,E],proc(V):U">mapVal</a>, but instead of taking and calling a function, it takes and executes an AST, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
+    Functions the same as <a class="reference external" href="#mapVal,sinkResult[V,E],proc(V)">mapVal</a>, but instead of taking and calling a function, it takes and executes an AST, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">block</span><span class="Punctuation">:</span>
   <span class="Keyword">let</span> <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">success</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="DecNumber">95845</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapValIt</span><span class="Punctuation">(</span><span class="Identifier">it</span> <span class="Keyword">div</span> <span class="DecNumber">10</span><span class="Punctuation">)</span>
@@ -609,7 +640,7 @@
   <dt><pre><span class="Keyword">macro</span> <a href="#mapValOrElseIt.m%2CsinkResult%5BV%2CE%5D%2Cuntyped%2Cuntyped"><span class="Identifier">mapValOrElseIt</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">errBody</span><span class="Other">,</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    Functions the same as <a class="reference external" href="#mapValOrElse,sinkResult[V,E],U,proc(E):V,proc(V):U">mapValOr</a>, but instead of taking and calling functions, it takes and executes ASTs, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt> for <tt class="docutils literal"><span class="pre">body</span></tt> and the error of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt> for <tt class="docutils literal"><span class="pre">errBody</span></tt>.
+    Functions the same as <a class="reference external" href="#mapValOrElse,sinkResult[V,E],proc(E),proc(V)">mapValOrElse</a>, but instead of taking and calling functions, it takes and executes ASTs, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt> for <tt class="docutils literal"><span class="pre">body</span></tt> and the error of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt> for <tt class="docutils literal"><span class="pre">errBody</span></tt>.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Comment"># highly oversimplified example</span>
 <span class="Keyword">block</span><span class="Punctuation">:</span>
@@ -628,7 +659,7 @@
   <dt><pre><span class="Keyword">macro</span> <a href="#mapValOrIt.m%2CsinkResult%5BV%2CE%5D%2CU%2Cuntyped"><span class="Identifier">mapValOrIt</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">,</span> <span class="Identifier">U</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">res</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="results.html#Result"><span class="Identifier">Result</span></a><span class="Other">[</span><span class="Identifier">V</span><span class="Other">,</span> <span class="Identifier">E</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">default</span><span class="Other">:</span> <span class="Identifier">U</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    Functions the same as <a class="reference external" href="#mapValOr,sinkResult[V,E],U,proc(V):U">mapValOrIt</a>, but instead of taking and calling a function, it takes and executes an AST, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
+    Functions the same as <a class="reference external" href="#mapValOr,sinkResult[V,E],U,proc(V)">mapValOrIt</a>, but instead of taking and calling a function, it takes and executes an AST, providing the value of <tt class="docutils literal"><span class="pre">res</span></tt> as the variable <tt class="docutils literal"><span class="pre">it</span></tt>.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">block</span><span class="Punctuation">:</span>
   <span class="Keyword">let</span> <span class="Identifier">value</span> <span class="Operator">=</span> <span class="Identifier">success</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="DecNumber">76</span><span class="Punctuation">)</span><span class="Operator">.</span><span class="Identifier">mapValOrIt</span><span class="Punctuation">(</span><span class="DecNumber">0</span><span class="Punctuation">,</span> <span class="Identifier">it</span> <span class="Operator">-</span> <span class="DecNumber">100</span><span class="Punctuation">)</span>
@@ -883,7 +914,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-22 18:16:18 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-24 10:31:08 UTC</small>
       </div>
     </div>
   </div>

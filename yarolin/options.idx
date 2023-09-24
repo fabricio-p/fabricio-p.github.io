@@ -2,3 +2,5 @@ nimTitle	options	options.html	module src/yarolin/options		0
 nim	`?`	options.html#?.t,typedesc[T]	template `?`[T](ty: typedesc[T]): untyped		6
 nim	`or`	options.html#or.m,Option[T],untyped	macro `or`[T](option: Option[T]; body: untyped): untyped		8
 nim	`<->`	options.html#<->.m,sinkOption[T],sinkOption[T]	macro `<->`[T](option1, option2: sink Option[T]): T		17
+nim	map2	options.html#map2,Option[V1],Option[V2],proc(V1,V2)	proc map2[V1, V2, V3](opt1: Option[V1]; opt2: Option[V2]; fn: proc (a: V1; b: V2): V3): Option[\n    V3]		26
+nim	map2AB	options.html#map2AB.m,Option[V1],Option[V2],untyped	macro map2AB[V1, V2](opt1: Option[V1]; opt2: Option[V2]; body: untyped): untyped		34
