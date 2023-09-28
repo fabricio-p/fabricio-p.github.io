@@ -40,7 +40,7 @@
           </ul></dd>
 <dt><a name="%60%26lt%3B-%26gt%3B%60" href="#%60%26lt%3B-%26gt%3B%60"><span>`&lt;-&gt;`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="options: macro `&lt;-&gt;`[T](option1, option2: sink Option[T]): T" href="options.html#%3C-%3E.m%2CsinkOption%5BT%5D%2CsinkOption%5BT%5D">options: macro `&lt;-&gt;`[T](option1, option2: sink Option[T]): T</a></li>
+          data-doc-search-tag="options: macro `&lt;-&gt;`[T](opt1, opt2: sink Option[T]): T" href="options.html#%3C-%3E.m%2CsinkOption%5BT%5D%2CsinkOption%5BT%5D">options: macro `&lt;-&gt;`[T](opt1, opt2: sink Option[T]): T</a></li>
           </ul></dd>
 <dt><a name="%60%3D%21%2B%60" href="#%60%3D%21%2B%60"><span>`=!+`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -56,12 +56,14 @@
           </ul></dd>
 <dt><a name="%60or%60" href="#%60or%60"><span>`or`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="options: macro `or`[T](option: Option[T]; body: untyped): untyped" href="options.html#or.m%2COption%5BT%5D%2Cuntyped">options: macro `or`[T](option: Option[T]; body: untyped): untyped</a></li>
+          data-doc-search-tag="options: macro `or`[T](opt: Option[T]; body: untyped): untyped" href="options.html#or.m%2COption%5BT%5D%2Cuntyped">options: macro `or`[T](opt: Option[T]; body: untyped): untyped</a></li>
           <li><a class="reference external"
           data-doc-search-tag="results: macro `or`[V, E](res: sink Result[V, E]; body: untyped): untyped" href="results.html#or.m%2CsinkResult%5BV%2CE%5D%2Cuntyped">results: macro `or`[V, E](res: sink Result[V, E]; body: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="%60try%60" href="#%60try%60"><span>`try`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
+          data-doc-search-tag="options: macro `try`[T](opt: sink Option[T]): untyped" href="options.html#try.m%2CsinkOption%5BT%5D">options: macro `try`[T](opt: sink Option[T]): untyped</a></li>
+          <li><a class="reference external"
           data-doc-search-tag="results: macro `try`[V, E](res: Result[V, E]): untyped" href="results.html#try.m%2CResult%5BV%2CE%5D">results: macro `try`[V, E](res: Result[V, E]): untyped</a></li>
           </ul></dd>
 <dt><a name="borrowErr" href="#borrowErr"><span>borrowErr:</span></a></dt><dd><ul class="simple">
@@ -90,6 +92,14 @@
 <li><a class="reference external"
           data-doc-search-tag="results: proc getVal[V, E](res: sink Result[V, E]): V" href="results.html#getVal%2CsinkResult%5BV%2CE%5D">results: proc getVal[V, E](res: sink Result[V, E]): V</a></li>
           </ul></dd>
+<dt><a name="isSomeAnd" href="#isSomeAnd"><span>isSomeAnd:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="options: proc isSomeAnd[T](opt: Option[T]; fn: proc (val: T): bool): bool" href="options.html#isSomeAnd%2COption%5BT%5D%2Cproc%28T%29">options: proc isSomeAnd[T](opt: Option[T]; fn: proc (val: T): bool): bool</a></li>
+          </ul></dd>
+<dt><a name="isSomeAndIt" href="#isSomeAndIt"><span>isSomeAndIt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="options: macro isSomeAndIt[T](opt: Option[T]; body: untyped): untyped" href="options.html#isSomeAndIt.m%2COption%5BT%5D%2Cuntyped">options: macro isSomeAndIt[T](opt: Option[T]; body: untyped): untyped</a></li>
+          </ul></dd>
 <dt><a name="map2" href="#map2"><span>map2:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="options: proc map2[V1, V2, V3](opt1: Option[V1]; opt2: Option[V2]; fn: proc (a: V1; b: V2): V3): Option[
@@ -107,6 +117,10 @@
 <dt><a name="mapErrIt" href="#mapErrIt"><span>mapErrIt:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="results: macro mapErrIt[V, E](res: sink Result[V, E]; errBody: untyped): untyped" href="results.html#mapErrIt.m%2CsinkResult%5BV%2CE%5D%2Cuntyped">results: macro mapErrIt[V, E](res: sink Result[V, E]; errBody: untyped): untyped</a></li>
+          </ul></dd>
+<dt><a name="mapIt" href="#mapIt"><span>mapIt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="options: macro mapIt[T](opt: sink Option[T]; body: untyped): untyped" href="options.html#mapIt.m%2CsinkOption%5BT%5D%2Cuntyped">options: macro mapIt[T](opt: sink Option[T]; body: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="mapVal" href="#mapVal"><span>mapVal:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -136,6 +150,8 @@
           </ul></dd>
 <dt><a name="orReturn" href="#orReturn"><span>orReturn:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
+          data-doc-search-tag="options: macro orReturn[T](opt: sink Option[T]; value: untyped): untyped" href="options.html#orReturn.m%2CsinkOption%5BT%5D%2Cuntyped">options: macro orReturn[T](opt: sink Option[T]; value: untyped): untyped</a></li>
+          <li><a class="reference external"
           data-doc-search-tag="results: macro orReturn[V, E](res: sink Result[V, E]; body: untyped): untyped" href="results.html#orReturn.m%2CsinkResult%5BV%2CE%5D%2Cuntyped">results: macro orReturn[V, E](res: sink Result[V, E]; body: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="Result" href="#Result"><span>Result:</span></a></dt><dd><ul class="simple">
@@ -214,7 +230,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-24 10:31:09 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-09-28 18:30:21 UTC</small>
       </div>
     </div>
   </div>
