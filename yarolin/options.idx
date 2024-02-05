@@ -4,8 +4,9 @@ nim	`or`	options.html#or.m,Option[T],untyped	macro `or`[T](opt: Option[T]; body:
 nim	`<->`	options.html#<->.m,sinkOption[T],sinkOption[T]	macro `<->`[T](opt1, opt2: sink Option[T]): T		25
 nim	mapIt	options.html#mapIt.m,sinkOption[T],untyped	macro mapIt[T](opt: sink Option[T]; body: untyped): untyped		38
 nim	map2	options.html#map2,Option[V1],Option[V2],proc(V1,V2)	proc map2[V1, V2, V3](opt1: Option[V1]; opt2: Option[V2]; fn: proc (a: V1; b: V2): V3): Option[\n    V3]		56
-nim	map2AB	options.html#map2AB.m,Option[V1],Option[V2],untyped	macro map2AB[V1, V2](opt1: Option[V1]; opt2: Option[V2]; body: untyped): untyped		75
-nim	`try`	options.html#try.m,sinkOption[T]	macro `try`[T](opt: sink Option[T]): untyped		104
-nim	orReturn	options.html#orReturn.m,sinkOption[T],untyped	macro orReturn[T](opt: sink Option[T]; value: untyped): untyped		114
-nim	isSomeAnd	options.html#isSomeAnd,Option[T],proc(T)	proc isSomeAnd[T](opt: Option[T]; fn: proc (val: T): bool): bool		124
-nim	isSomeAndIt	options.html#isSomeAndIt.m,Option[T],untyped	macro isSomeAndIt[T](opt: Option[T]; body: untyped): untyped		133
+nim	map2AB	options.html#map2AB.m,Option[V1],Option[V2],untyped	macro map2AB[V1, V2](opt1: Option[V1]; opt2: Option[V2]; body: untyped): untyped		76
+nim	`try`	options.html#try.m,sinkOption[T]	macro `try`[T](opt: sink Option[T]): untyped		107
+nim	orReturn	options.html#orReturn.m,sinkOption[T],untyped	macro orReturn[T](opt: sink Option[T]; value: untyped): untyped		117
+nim	isSomeAnd	options.html#isSomeAnd,Option[T],proc(T)	proc isSomeAnd[T](opt: Option[T]; fn: proc (val: T): bool): bool		128
+nim	isSomeAndIt	options.html#isSomeAndIt.m,Option[T],untyped	macro isSomeAndIt[T](opt: Option[T]; body: untyped): untyped		139
+nim	expect	options.html#expect,Option[T],string	proc expect[T](opt: Option[T]; msg: string): T		152
